@@ -441,9 +441,9 @@ if (isset($_GET['art'])) {
                         window.location.href='index.php?art=send_mail_success'
                     </script>";
                     } else if ($method == 'momo_QR') {
-                        include '../ColorShop/momo/MOMO_QR.php';
+                        include 'momo/MOMO_QR.php';
                     } else if ($method == 'momo_atm') {
-                        include '../ColorShop/momo/MOMO_atm.php';
+                        include '../Colorshop/momo/MOMO_atm.php';
                     }
                 }
             }
