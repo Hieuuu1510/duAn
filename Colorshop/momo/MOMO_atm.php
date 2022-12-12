@@ -29,7 +29,7 @@ $partnerCode = 'MOMOBKUN20180529';
 $accessKey = 'klm05TvNBzhg7h7j';
 $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua MoMo ATM";
-$amount =  $total_price * 23875;
+$amount =  $total_price * 1000;
 $orderId = time() ."";
 $redirectUrl = "http://localhost/duAn/ColorShop/index.php?art=send_mail_success";
 $ipnUrl = "http://localhost/duAn/ColorShop/index.php?art=send_mail_success";
