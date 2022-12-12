@@ -12,7 +12,7 @@ $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 $vnp_Returnurl = "http://localhost/duAn/ColorShop/index.php?art=send_mail_success";
 $vnp_apiUrl = "http://sandbox.vnpayment.vn/merchant_webapi/merchant.html";
 //Config input format
-//Expire
+//Expir
 $startTime = date("YmdHis");
 $expire = date('YmdHis',strtotime('+15 minutes',strtotime($startTime)));
 
