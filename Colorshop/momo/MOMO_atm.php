@@ -31,8 +31,8 @@ $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua MoMo ATM";
 $amount =  $total_price * 23875;
 $orderId = time() ."";
-$redirectUrl = "http://localhost/duAn1/ColorShop/index.php?art=send_mail_success";
-$ipnUrl = "http://localhost/duAn1/ColorShop/index.php?art=send_mail_success";
+$redirectUrl = "http://localhost/duAn/ColorShop/index.php?art=send_mail_success";
+$ipnUrl = "http://localhost/duAn/ColorShop/index.php?art=send_mail_success";
 $extraData = "";
 
 
