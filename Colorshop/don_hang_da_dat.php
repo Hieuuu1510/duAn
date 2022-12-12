@@ -10,7 +10,7 @@
         <?php
         if (isset($_SESSION['user'])) {
             extract($_SESSION['user']);
-
+        
             $fetch_order = select_order_where_idKH($id_kh);
             foreach ($fetch_order as $order) {
         ?>
@@ -63,8 +63,9 @@
             </div> -->
 
                 </div>
-            <?php  }
-        } else { ?>
+            <?php  } 
+            }
+            else { ?>
             <section>
                 <div style="margin-top: 200px;text-align:center;">
                     <h2>No orders placed yet!</h2>
