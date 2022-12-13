@@ -302,7 +302,15 @@
 										<span class="up" onClick='increaseCount(event, this)'>+</span>
 									</div>
 									<!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
-									<input type="submit"  value="Thêm vào giỏ hàng" class="red_button add_to_cart_button" name="add_to_cart" id="add_to_cart" style="border:none;color:white;">
+									<?php
+									if (empty($_SESSION['user'])) {
+										echo '<a href="index.php?art=signin&url='.$url_product.'" class="red_button add_to_cart_button url_btn">Đăng nhập để mua hàng</a>';
+									 } else { ?>
+										<input type="submit" value="Add to cart" class="red_button add_to_cart_button" name="add_to_cart" id="add_to_cart" style="border:none;color:white;">
+									<?php
+									}
+									?>
+									<!-- <input type="submit"  value="Thêm vào giỏ hàng" class="red_button add_to_cart_button" name="add_to_cart" id="add_to_cart" style="border:none;color:white;"> -->
 									<!-- <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div> -->
 								</div>
 							</div>
@@ -409,6 +417,9 @@
 		.product_name a:hover {
 			opacity: 0.5;
 		
+		}
+		.url_btn{
+			color: white;
 		}
 	</style>
 
