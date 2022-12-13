@@ -25,7 +25,7 @@ function number_of_cart($user_id)
 
 function loadAll_cart_where_user_id($user_id)
 {
-    $sql  = "SELECT * FROM `cart` where user_id = '$user_id'";
+    $sql  = "SELECT * FROM `cart` where user_id = '$user_id' order by id desc";
     $list_cart = pdo_query($sql);
     return $list_cart;
 }
