@@ -557,6 +557,18 @@ window.location.href('index.php?art=single');
 	</script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+
+   document.querySelectorAll('input[type="number"]').forEach(inputNumbmer => {
+      inputNumbmer.oninput = () =>{
+         if(inputNumbmer.value.length > inputNumbmer.maxLength) inputNumbmer.value = inputNumbmer.value.slice(0, inputNumbmer.maxLength);
+      }
+   });
+
+</script>
+<?php include '../Colorshop/mail/messages.php'; ?>
 </body>
 
 </html>
