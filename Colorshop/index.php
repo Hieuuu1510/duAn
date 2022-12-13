@@ -79,6 +79,11 @@ if (isset($_GET['art'])) {
             include 'login.php';
             break;
         case 'signin':
+            $url_product  = $_GET;
+            if (isset($_GET['url'])) {
+                setcookie('url_sp', $_GET['url'], time() + 3600);
+                setcookie('id_sp', $_GET['id_sp'], time() + 3600);
+            }
             if (isset($_POST['signup'])) {
                 $thongbao = '';
                 $email = $_POST['email'];
@@ -90,6 +95,18 @@ if (isset($_GET['art'])) {
                 } else {
                     $thongbao = 'Email hoặc mật khẩu không đúng !';
                     include 'signin.php';
+                }
+
+                if (isset($_COOKIE['url_sp']) && ($_COOKIE['id_sp'])) {
+                    if (is_array($check_kh)) {
+                        $_SESSION['user'] = $check_kh;
+                        header('location:' . $_COOKIE['url_sp'] . '&id_sp=' . $_COOKIE['id_sp']);
+                        setcookie('url_sp', '', time() - 3600);
+                        setcookie('id_sp', '', time() - 3600);
+                    } else {
+                        $thongbao = 'Email hoặc mật khẩu không đúng !';
+                        include 'signin.php';
+                    }
                 }
             } else {
                 include 'signin.php';
@@ -265,6 +282,7 @@ if (isset($_GET['art'])) {
 
         case 'single':
             if (isset($_GET['id_sp'])) {
+                $url_product = $_SERVER['REQUEST_URI'];
                 $id_sp = $_GET['id_sp'];
                 $list_one_sp = loadone_sanpham($id_sp);
                 extract($list_one_sp);
