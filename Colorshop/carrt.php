@@ -261,9 +261,18 @@
 							
 							<td>$<?= $cart['price'] ?></td>
 							<td class="td_button">
-								<input type="number" value="<?= $cart['quantity'] ?>" name="quantity" min="1">
+								<!-- <input type="number" value="<?= $cart['quantity'] ?>" name="quantity" min="1">
 								<button type="submit"  name="update_quantity"> <i class="fa fa-wrench" aria-hidden="true" ></i></button>
-							
+							 -->
+							 <form action="" method="post">
+									<div class="counter">
+										 <!-- <span class="down">-</span> -->
+										 <input type="submit" name="down" class="down" value="-"> 
+										<input type="text" value="<?= $cart['quantity'] ?>" name="quantity" min="1" class="quantity">
+										<!-- <span class="up">+</span> -->
+										<input type="submit" name="up" class="up" value="+"> 
+									</div>
+								</form>
 							</td>
 							<td>$<?= $sub_total = ($cart['price'] * $cart['quantity']) ?></td>
 							<td>
@@ -426,6 +435,44 @@
 		border: none;
 		/* background-color: #fe4c50; */
 	}
+	.counter {
+			width: 150px;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.counter .quantity {
+			width: 50px;
+			border: 0;
+			line-height: 30px;
+			font-size: 20px;
+			text-align: center;
+			background: rgb(181, 177, 177);
+			color: #fff;
+			appearance: none;
+			outline: 0;
+		}
+
+		.counter .up {
+			display: block;
+			font-size: 25px;
+			padding: 0 10px;
+			cursor: pointer;
+			color: black;
+			user-select: none;
+			border: none;
+		}
+		.counter .down {
+			display: block;
+			font-size: 25px;
+			padding: 0 10px;
+			cursor: pointer;
+			color: black;
+			user-select: none;
+			border: none;
+		}
 </style>
 </body>
 
