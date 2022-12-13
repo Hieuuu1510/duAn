@@ -29,18 +29,18 @@ if (isset($_GET['art'])) {
                 $same_email = select_user_where_email($email);
                 $same_phone = select_user_where_phone($phone);
                 $regFullname =
-                "/^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầ
+                    "/^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầ
                   ẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\s\'ÀÁÂÃÈÉÊÌÍÒÓ
                   ÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộ
                   ớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầ
                   ẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$/";
-                    if (empty($user)) {
-                        $error['user'] = "Tên đăng nhập không được trống !";
-                    } else if ($same_name > 0) {
-                        $error['user'] = "Tên đăng nhập đã tồn tại";
-                    }else if(!preg_match($regFullname , $user)){
-                        $error['user'] = "Các ký tự chữ cái a - z !";
-                    }
+                if (empty($user)) {
+                    $error['user'] = "Tên đăng nhập không được trống !";
+                } else if ($same_name > 0) {
+                    $error['user'] = "Tên đăng nhập đã tồn tại";
+                } else if (!preg_match($regFullname, $user)) {
+                    $error['user'] = "Các ký tự chữ cái a - z !";
+                }
 
                 $likeEmail = "/^\w+@(\w+\.\w+){1,2}$/";
                 if (empty($email)) {
@@ -63,7 +63,7 @@ if (isset($_GET['art'])) {
                 $regPasswword = "/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/";
                 if (empty($pass)) {
                     $error['pass'] = "Mật khẩu không được trống !";
-                } else if (!preg_match($regPasswword , $pass)) {
+                } else if (!preg_match($regPasswword, $pass)) {
                     $error['pass'] = "Tối thiểu tám ký tự, ít nhất một chữ cái và một số !";
                 }
 
@@ -100,18 +100,18 @@ if (isset($_GET['art'])) {
             include 'layout/home_user.php';
             break;
         case 'quenmk':
-            if(isset($_POST['quen_mk'])){
+            if (isset($_POST['quen_mk'])) {
                 $email = $_POST['email'];
                 $quen_mk = quen_mk($email);
-                if(is_array($quen_mk)){
-                    $notification = "Mật khẩu của bạn là: ".$quen_mk['pass'];
-                }else{
+                if (is_array($quen_mk)) {
+                    $notification = "Mật khẩu của bạn là: " . $quen_mk['pass'];
+                } else {
                     $notification = "Email không tồn tại";
                 }
                 $likeEmail = "/^\w+@(\w+\.\w+){1,2}$/";
-                if($email == ""){
+                if ($email == "") {
                     $notification = "Email không được để trống";
-                }else if (!preg_match($likeEmail, $email)) {
+                } else if (!preg_match($likeEmail, $email)) {
                     $notification  = "Email không đúng định dạng";
                 }
             }
@@ -126,22 +126,22 @@ if (isset($_GET['art'])) {
                 $phone = $_POST['phone'];
                 $id_kh = $_POST['id_kh'];
 
-                if($pass == ""){
+                if ($pass == "") {
                     $error_pass = "Mật khẩu không được để trống";
                 }
-                if($address == ""){
+                if ($address == "") {
                     $error_address = "Địa chỉ không được để trống";
                 }
                 $regSDT = "/^0[0-9]{9}$/";
-                if($phone == ""){
+                if ($phone == "") {
                     $error_phone = "Số điện thoại không được để trống";
-                }else if(!preg_match($regSDT, $phone)){
+                } else if (!preg_match($regSDT, $phone)) {
                     $error_phone = "Số điện thoại không đúng định dạng";
                 }
-                if(!isset($error_pass) && !isset($error_address) && !isset($error_phone)){
+                if (!isset($error_pass) && !isset($error_address) && !isset($error_phone)) {
                     update_khachhang($name, $pass, $address, $email, $phone, $id_kh);
                     $_SESSION['user'] = check_kh($email, $pass);
-                    
+
                     // header('location:index.php');
                     echo '<script>
                             alert("Cập nhật thành công");
@@ -157,7 +157,7 @@ if (isset($_GET['art'])) {
             } else {
                 $list_sp = loadall_sanpham(0, "");
             }
-            if(isset($_POST['search_box'])){
+            if (isset($_POST['search_box'])) {
                 $search = $_POST['search_box'];
                 $list_sp = loadall_sanpham(0, $search);
             }
@@ -236,17 +236,22 @@ if (isset($_GET['art'])) {
             //     update_quantity($qty, $cart_id);
             // }
 
-            if(isset($_POST['up'])){
+            if (isset($_POST['up'])) {
                 $cart_id = $_POST['cart_id'];
                 $qty = $_POST['quantity'];
-                $up = $qty + 1 ;
+                $up = $qty + 1;
                 update_quantity($up, $cart_id);
             }
-            if(isset($_POST['down'])){
+            if (isset($_POST['down'])) {
                 $cart_id = $_POST['cart_id'];
                 $qty = $_POST['quantity'];
-                $down = $qty - 1 ;
-                update_quantity($down, $cart_id);
+                $down = $qty - 1;
+                if ($down >= 1) {
+                    update_quantity($down, $cart_id);
+                } else {
+                    $downn = 1;
+                    update_quantity($downn, $cart_id);
+                }
             }
 
             if (isset($_SESSION['user'])) {
@@ -453,7 +458,7 @@ if (isset($_GET['art'])) {
                         echo "<script>
                         window.location.href='index.php?art=send_mail_success'
                     </script>";
-                    }else if ($method == 'momo_atm') {
+                    } else if ($method == 'momo_atm') {
                         include '../Colorshop/momo/MOMO_atm.php';
                     }
                 }

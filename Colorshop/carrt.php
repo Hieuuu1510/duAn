@@ -257,7 +257,7 @@
 							<td>
 								<img width="100px" src="../uploaded_img/<?= $cart['image'] ?>" alt="">
 							</td>
-							<td><?= $cart['name'] ?></td>
+							<td><a class="name_product" href="index.php?art=single&id_sp=<?= $cart['pid'] ?>"><?= $cart['name'] ?></a></td>
 							
 							<td>$<?= $cart['price'] ?></td>
 							<td class="td_button">
@@ -472,6 +472,9 @@
 			color: black;
 			user-select: none;
 			border: none;
+		}
+		.name_product{
+			color: black;
 		}
 </style>
 </body>
