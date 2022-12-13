@@ -230,10 +230,23 @@ if (isset($_GET['art'])) {
                     delete_cart_where_id($delete_id);
                 }
 
-            if (isset($_POST['update_quantity'])) {
+            // if (isset($_POST['update_quantity'])) {
+            //     $cart_id = $_POST['cart_id'];
+            //     $qty = $_POST['quantity'];
+            //     update_quantity($qty, $cart_id);
+            // }
+
+            if(isset($_POST['up'])){
                 $cart_id = $_POST['cart_id'];
                 $qty = $_POST['quantity'];
-                update_quantity($qty, $cart_id);
+                $up = $qty + 1 ;
+                update_quantity($up, $cart_id);
+            }
+            if(isset($_POST['down'])){
+                $cart_id = $_POST['cart_id'];
+                $qty = $_POST['quantity'];
+                $down = $qty - 1 ;
+                update_quantity($down, $cart_id);
             }
 
             if (isset($_SESSION['user'])) {
