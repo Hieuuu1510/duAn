@@ -140,8 +140,8 @@
 												extract($_SESSION['user']);
 											?>
 												<li><a href="index.php?art=update_user"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-												<li><a href="index.php?art=order_history">Đơn mua</a></li>
-												<li><a href="index.php?art=logout" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"><i class="fa fa-user-plus" aria-hidden="true"></i>Thoát</a></li>
+												<li><a href="index.php?art=order_history">Order history</a></li>
+												<li><a href="index.php?art=logout" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"><i class="fa fa-user-plus" aria-hidden="true"></i>Log out</a></li>
 											<?php
 											} else {
 											?>
@@ -304,7 +304,7 @@
 									<!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
 									<?php
 									if (empty($_SESSION['user'])) {
-										echo '<a href="index.php?art=signin&url='.$url_product.'" class="red_button add_to_cart_button url_btn">Đăng nhập để mua hàng</a>';
+										echo '<a href="index.php?art=signin&url='.$url_product.'" class="red_button add_to_cart_button url_btn">Login</a>';
 									 } else { ?>
 										<input type="submit" value="Add to cart" class="red_button add_to_cart_button" name="add_to_cart" id="add_to_cart" style="border:none;color:white;">
 									<?php
@@ -343,7 +343,7 @@
                 <div class="col text-center">
 					<br><br>
                     <div class="section_title new_arrivals_title">
-                        <h2>Sản phẩm cùng loại</h2>
+                        <h2>Related products</h2>
                     </div>
                 </div>
             </div>
@@ -367,7 +367,7 @@
 										</div>
 									</a>
 								</div>
-								<div style="margin-left :60px;" class="red_button add_to_cart_button"><a href="index.php?art=single&id_sp=<?php echo $row['id_sp'] ?>">Xem chi tiết</a></div>
+								<div style="margin-left :60px;" class="red_button add_to_cart_button"><a href="index.php?art=single&id_sp=<?php echo $row['id_sp'] ?>">See detail</a></div>
 							</div>
 						<?php
 							} 
@@ -420,6 +420,7 @@
 		}
 		.url_btn{
 			color: white;
+			text-decoration: none;
 		}
 	</style>
 

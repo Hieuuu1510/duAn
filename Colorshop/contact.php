@@ -131,9 +131,9 @@
                                             ?>
                                                 <li><a href="index.php?art=update_user"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i></i>Update</a></li>
-															<li><a href="index.php?art=order_history">Đơn mua</a></li>
+															<li><a href="index.php?art=order_history">Order history</a></li>
                                                 <li><a href="index.php?art=logout"><i class="fa fa-user-plus"
-                                                            aria-hidden="true" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"></i>Thoát</a></li>
+                                                            aria-hidden="true" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"></i>Log out</a></li>
                                             <?php
                                                 }else{
                                             ?>
@@ -341,9 +341,7 @@
 									<?php if (isset($error['email'])) { ?>
 										<span style="color:red;"><?= $error['email'] ?></span>
 									<?php  } ?>
-									<input id="input_content" class="form_input input_websi input_ph" type="text" name="content" placeholder="Description" value="<?php if (isset($content)) {
-																																										echo $content;
-																																									}  ?>">
+									<input id="input_content" class="form_input input_websi input_ph" type="text" name="content" placeholder="Description" >
 									<?php if (isset($error['content'])) { ?>
 										<span style="color:red;"><?= $error['content'] ?></span>
 									<?php  } ?>
@@ -438,6 +436,20 @@
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
 <script src="js/contact_custom.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+
+   document.querySelectorAll('input[type="number"]').forEach(inputNumbmer => {
+      inputNumbmer.oninput = () =>{
+         if(inputNumbmer.value.length > inputNumbmer.maxLength) inputNumbmer.value = inputNumbmer.value.slice(0, inputNumbmer.maxLength);
+      }
+   });
+
+</script>
+<?php include '../Colorshop/mail/messages.php'; ?>
 </body>
 
 </html>

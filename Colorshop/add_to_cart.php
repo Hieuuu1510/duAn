@@ -22,10 +22,10 @@ if (isset($_POST['add_to_cart'])) {
             $quantity_cart = $fetch_cart['quantity'];
             $update_quantity = $quantity_cart + $quantity;
             update_quantity_where_pid($update_quantity, $pid, $user_id);
-            $error_message[] = "Sản phẩm đã tồn tại !";
+            $error_message[] = "Product already exists !";
         } else {
             insert_cart($user_id, $pid, $name, $price, $quantity, $image);
-            $success_message[] = "Đã thêm vào giỏ hàng !";
+            $success_message[] = "Added to cart !";
         }
     }
 }

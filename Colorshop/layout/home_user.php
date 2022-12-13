@@ -74,7 +74,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="index.php?art=single&id_sp=<?php echo $sp['id_sp'] ?>">Xem chi tiết</a></div>
+                                <div class="red_button add_to_cart_button"><a href="index.php?art=single&id_sp=<?php echo $sp['id_sp'] ?>">See details</a></div>
                             </div>
 
                         <?php } ?>

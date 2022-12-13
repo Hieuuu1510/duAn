@@ -136,9 +136,9 @@
                                             ?>
                                                 <li><a href="index.php?art=update_user"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i></i>Update</a></li>
-															<li><a href="index.php?art=order_history">Đơn mua</a></li>
+															<li><a href="index.php?art=order_history">Order history</a></li>
                                                 <li><a href="index.php?art=logout" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"><i class="fa fa-user-plus"
-                                                            aria-hidden="true"></i>Thoát</a></li>
+                                                            aria-hidden="true"></i>Log out</a></li>
                                             <?php
                                                 }else{
                                             ?>

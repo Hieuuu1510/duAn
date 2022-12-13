@@ -102,8 +102,8 @@
                             <div class="option">
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
-                                        Thanh toán khi nhận hàng
-                                        <input type="radio" name="method" id="payment" value="Thanh toán khi nhận hàng">
+                                    Payment on delivery
+                                        <input type="radio" name="method" id="payment" value="Payment on delivery">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -115,13 +115,13 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <div class="checkout__input__checkbox">
+                                <!-- <div class="checkout__input__checkbox">
                                     <label for="momo_ATM">
                                         MOMO ATM
                                         <input type="radio" name="method" id="momo_ATM" value="momo_atm">
                                         <span class="checkmark"></span>
                                     </label>
-                                </div>
+                                </div> -->
                                 <!-- <div class="checkout__input__checkbox">
                                     <label for="momo_QR">
                                         MOMO QR CODE

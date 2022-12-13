@@ -134,9 +134,9 @@
                                             ?>
                                                 <li><a href="index.php?art=update_user"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i></i>Update</a></li>
-															<li><a href="index.php?art=order_history">Đơn mua</a></li>
+															<li><a href="index.php?art=order_history">Order history</a></li>
                                                 <li><a href="index.php?art=logout" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"><i class="fa fa-user-plus"
-                                                            aria-hidden="true"></i>Thoát</a></li>
+                                                            aria-hidden="true"></i>Log out</a></li>
                                             <?php
                                                 }else{
                                             ?>
@@ -348,7 +348,7 @@
 													</div>
 
 												</a>
-												<div class="red_button add_to_cart_button"><a href="index.php?art=single&id_sp=<?php echo $row['id_sp'] ?>">Xem chi tiết</a></div>
+												<div class="red_button add_to_cart_button"><a href="index.php?art=single&id_sp=<?php echo $row['id_sp'] ?>">See detail</a></div>
 											</div>
 										<?php	} ?>
 									

@@ -158,7 +158,7 @@ if (isset($_GET['action'])) {
                     }
                 }
                 if ($price == "") {
-                    $error_price = "Giá không được để trống hoặc bắt buộc phải nhập số";
+                    $error_price = "Giá không được để trống ";
                     $upload = false;
                 }
 
@@ -272,7 +272,7 @@ if (isset($_GET['action'])) {
                 }
 
                 if ($price == "") {
-                    $_SESSION['error_price'] = "Giá không được để trống và bắt buộc phải nhập số";
+                    $_SESSION['error_price'] = "Giá không được để trống ";
                     // $upload = false;
                 }else{
                     unset($_SESSION['error_price']);

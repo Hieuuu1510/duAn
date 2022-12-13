@@ -141,9 +141,9 @@
                                         ?>
                                             <li><a href="index.php?art=update_user"><i class="fa fa-pencil-square-o"
                                                          aria-hidden="true"></i></i>Update</a></li>
-                                                         <li><a href="index.php?art=order_history">Đơn mua</a></li>
+                                                         <li><a href="index.php?art=order_history">Order history</a></li>
                                             <li><a href="index.php?art=logout"><i class="fa fa-user-plus"
-                                                        aria-hidden="true" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"></i>Thoát</a></li>
+                                                        aria-hidden="true" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"></i>Log out</a></li>
                                         <?php
                                             }else{
                                         ?>
@@ -286,6 +286,20 @@
   <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
   <script src="plugins/easing/easing.js"></script>
   <script src="js/custom.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+
+   document.querySelectorAll('input[type="number"]').forEach(inputNumbmer => {
+      inputNumbmer.oninput = () =>{
+         if(inputNumbmer.value.length > inputNumbmer.maxLength) inputNumbmer.value = inputNumbmer.value.slice(0, inputNumbmer.maxLength);
+      }
+   });
+
+</script>
+<?php include '../Colorshop/mail/messages.php'; ?>
 </body>
 
 </html>

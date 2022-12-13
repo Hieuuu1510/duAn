@@ -18,9 +18,9 @@
 
 
     <div style="margin-top: 300px;text-align:center;">
-        <h2>Bạn đã đặt hàng thành công , xin cảm ơn !</h2>
+        <h2>Your order has been successfully placed, thank you!</h2>
         <div style="margin-top: 60px;">
-            <a href="index.php" style="color: white;padding:10px 20px;background:red;border-radius:6px;">Quay lại trang chủ</a>
+            <a href="index.php" style="color: white;padding:10px 20px;background:red;border-radius:6px;">Go back home !</a>
         </div>
     </div>
 </section>

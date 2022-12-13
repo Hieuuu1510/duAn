@@ -160,9 +160,7 @@ if (isset($_GET['art'])) {
                     $_SESSION['user'] = check_kh($email, $pass);
 
                     // header('location:index.php');
-                    echo '<script>
-                            alert("Cập nhật thành công");
-                        </script>';
+                    $success_message[] = "Update successful !";
                 }
             }
             include 'update_user.php';
@@ -232,9 +230,7 @@ if (isset($_GET['art'])) {
 
                     if (empty($error)) {
                         insert_messages($name, $email, $content, $phone, $user_id);
-                        echo '<script>
-                    alert("Gửi thành công , chúng tôi sẽ sớm phản hồi lại bạn");
-                </script>';
+                        $success_message[] = "Submitted successfully !";
                     }
                 }
             }
@@ -476,9 +472,7 @@ if (isset($_GET['art'])) {
                         echo "<script>
                         window.location.href='index.php?art=send_mail_success'
                     </script>";
-                    } else if ($method == 'momo_atm') {
-                        include '../Colorshop/momo/MOMO_atm.php';
-                    }
+                    } 
                 }
             }
 
@@ -554,66 +548,7 @@ if (isset($_GET['art'])) {
                 }
             }
 
-            if (isset($_GET['partnerCode'])) {
-                $partnerCode = $_GET['partnerCode'];
-                $orderId = $_GET['orderId'];
-                $amount = $_GET['amount'];
-                $orderInfo = $_GET['orderInfo'];
-                $orderType = $_GET['orderType'];
-                $transId = $_GET['transId'];
-                $payType = $_GET['payType'];
-                $order_code = rand(0, 9999);
-                if (insert_momo_atm($partnerCode,  $orderId,  $amount, $orderInfo, $orderType,   $transId,  $payType,  $order_code)) {
-                    if (isset($_SESSION['user'])) {
-                        extract($_SESSION['user']);
-                    }
-                    $user_id = $id_kh;
-                    $method = 'MOMO ATM';
-                    $date = date('h:i:sa d/m/Y');
-                    $total_price = $_SESSION['total_price'];
-                    if (insert_order($order_code, $user_id, $method, $total_price, $date)) {
-                        $fetch_order = select_order_by_user_id($user_id);
-                        $order_id = $fetch_order['id'];
-
-                        $fetch_cart = select_cart_where_id($user_id);
-                        $noiDung = "<p>Cảm ơn quý khách đã đặt hàng với mã hóa đơn : " . $order_code . "</p>";
-                        $noiDung .= "<h2>Đơn hàng bao gồm : </h2>";
-                        foreach ($fetch_cart as $key => $val) {
-                            $product_id = $val['pid'];
-                            $name_product =  $val['name'];
-                            $quantity = $val['quantity'];
-                            $price = $val['price'];
-
-                            $total_price = $quantity * $price;
-
-                            $noiDung .= "<ul style='border:1px solid black ; margin:10px;'>
-                        <li>Mã sản phẩm : " . $product_id . "</li>
-                        <li>Tên sản phẩm : " . $name_product . "</li>
-                        <li>Tên sản phẩm : " . $price . "</li>
-                
-                        <li>Số lượng : " . $quantity . "</li>
-                        <li>Tồng tiền : " . $total_price . "</li>
-                    </ul>";
-
-
-                            insert_order_detail($order_code, $product_id, $name_product, $price, $quantity, $total_price);
-                        }
-                        //Send Mail 
-                        if (isset($_SESSION['user'])) {
-                            extract($_SESSION['user']);
-                        }
-
-                        $tieuDe = "Đặt hàng từ website DeigoShop";
-
-                        $mailDatHang = $email;
-
-                        dathangmail($tieuDe, $noiDung, $mailDatHang);
-                    }
-                    $success_message[] = 'Đặt hàng thành công !';
-                    delete_cart_all($user_id);
-                }
-            }
-
+           
 
 
 

@@ -137,12 +137,12 @@
                                                 if(isset($_SESSION['user'])){
                                                     extract($_SESSION['user']);
                                             ?>
-                                                <li><a href="index.php?art=quenmk"><i class="fa fa-sign-in"
-                                                            aria-hidden="true"></i>Forgot password</a></li>
+                                              
                                                 <li><a href="index.php?art=update_user"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i></i>Update</a></li>
+                                                            <li><a href="index.php?art=order_history">Order history</a></li>
                                                 <li><a href="index.php?art=logout"><i class="fa fa-user-plus"
-                                                            aria-hidden="true" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"></i>Thoát</a></li>
+                                                            aria-hidden="true" onclick="return confirm('Bạn có muốn đăng xuất không ? ')"></i>Log out</a></li>
                                             <?php
                                                 }else{
                                             ?>
