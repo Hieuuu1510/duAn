@@ -294,7 +294,13 @@
 									<span id="quantity_value">1</span>
 									<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
 								</div> -->
-									<input type="number" name="quantity" style="width :50px;padding-left:5px;" value="1" min="1">
+									<!-- <input type="number" name="quantity" style="width :50px;padding-left:5px;" value="1" min="1"> -->
+
+									<div class="counter">
+										<span class="down" onClick='decreaseCount(event, this)'>-</span>
+										<input type="text" value="1" name="quantity">
+										<span class="up" onClick='increaseCount(event, this)'>+</span>
+									</div>
 									<!-- <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div> -->
 									<input type="submit"  value="Thêm vào giỏ hàng" class="red_button add_to_cart_button" name="add_to_cart" id="add_to_cart" style="border:none;color:white;">
 									<!-- <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div> -->
@@ -530,6 +536,25 @@
  <!-- <script>
 window.location.href('index.php?art=single');
 </script> -->
+<script>
+		function increaseCount(a, b) {
+			var input = b.previousElementSibling;
+			var value = parseInt(input.value, 10);
+			value = isNaN(value) ? 0 : value;
+			value++;
+			input.value = value;
+		}
+
+		function decreaseCount(a, b) {
+			var input = b.nextElementSibling;
+			var value = parseInt(input.value, 10);
+			if (value > 1) {
+				value = isNaN(value) ? 0 : value;
+				value--;
+				input.value = value;
+			}
+		}
+	</script>
 
 
 </body>
