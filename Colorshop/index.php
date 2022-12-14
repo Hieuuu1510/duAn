@@ -25,21 +25,13 @@ if (isset($_GET['art'])) {
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
 
-                $same_name = select_user_where_name($user);
+               $same_name = select_user_where_name($user);
                 $same_email = select_user_where_email($email);
                 $same_phone = select_user_where_phone($phone);
-                $regFullname =
-                    "/^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầ
-                  ẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\s\'ÀÁÂÃÈÉÊÌÍÒÓ
-                  ÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộ
-                  ớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầ
-                  ẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$/";
                 if (empty($user)) {
                     $error['user'] = "Tên đăng nhập không được trống !";
                 } else if ($same_name > 0) {
                     $error['user'] = "Tên đăng nhập đã tồn tại";
-                } else if (!preg_match($regFullname, $user)) {
-                    $error['user'] = "Các ký tự chữ cái a - z !";
                 }
 
                 $likeEmail = "/^\w+@(\w+\.\w+){1,2}$/";
@@ -348,7 +340,7 @@ if (isset($_GET['art'])) {
                 $_SESSION['total_price'] = $total_price;
 
                 if (empty($error)) {
-                    if ($method == 'Thanh toán khi nhận hàng') {
+                    if ($method == 'Payment on delivery') {
                         $number_cart = number_of_cart($user_id);
                         if ($number_cart > 0) {
                             if (insert_order($order_code, $user_id, $method, $total_price, $date)) {
