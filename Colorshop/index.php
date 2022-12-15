@@ -25,7 +25,7 @@ if (isset($_GET['art'])) {
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
 
-               $same_name = select_user_where_name($user);
+                $same_name = select_user_where_name($user);
                 $same_email = select_user_where_email($email);
                 $same_phone = select_user_where_phone($phone);
                 if (empty($user)) {
@@ -387,7 +387,7 @@ if (isset($_GET['art'])) {
                             delete_cart_all($user_id);
                         }
                         echo "<script>
-                        window.location.href='index.php?art=send_mail_success'
+                        window.location.href='index.php?art=thanh_toan_offline';
                     </script>";
                     } else if ($method == 'VNPAY') {
 
@@ -464,7 +464,7 @@ if (isset($_GET['art'])) {
                         echo "<script>
                         window.location.href='index.php?art=send_mail_success'
                     </script>";
-                    } 
+                    }
                 }
             }
 
@@ -479,7 +479,7 @@ if (isset($_GET['art'])) {
         case 'send_mail_success':
 
             //Thanh toán vnpay
-            if (isset($_GET['vnp_Amount'])) {
+            if (isset($_GET['vnp_BankTranNo'])) {
                 $vnp_Amount = $_GET['vnp_Amount'];
                 $vnp_BankCode = $_GET['vnp_BankCode'];
                 $vnp_BankTranNo = $_GET['vnp_BankTranNo'];
@@ -538,13 +538,19 @@ if (isset($_GET['art'])) {
                     $success_message[] = 'Đặt hàng thành công !';
                     delete_cart_all($user_id);
                 }
+            } else if (!isset($_GET['vnp_BankTranNo'])) {
+                echo "Đặt hàng thất bại";
             }
 
-           
+
 
 
 
             include_once 'sendMailSuccess.php';
+            break;
+
+        case 'thanh_toan_offline':
+            include 'thanh_toan_offline.php';
             break;
 
         case 'order_history':

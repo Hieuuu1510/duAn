@@ -19,15 +19,9 @@
 
     <div style="margin-top: 300px;text-align:center;">
         <h2>
-        <?php
-            if(!empty($_GET['vnp_BankTranNo'])){
-                echo "Your order has been successfully placed, thank you!";
-            }else if(empty($_GET['vnp_BankTranNo'])){
-                echo "You have canceled your order!";
-            }else{
-                echo "Your order has been successfully placed, thank you!";
-            }
-            ?>
+    
+           Your order has been successfully placed, thank you!
+          
         </h2>
         <div style="margin-top: 60px;">
             <a href="index.php" style="color: white;padding:10px 20px;background:red;border-radius:6px;">Go back home !</a>
