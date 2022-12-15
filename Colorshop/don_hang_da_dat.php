@@ -36,10 +36,10 @@
                     foreach ($fetch_products as $product) { ?>
                         <div class="product">
                             <div class="text">
-                                <p>Tên sản phẩm : <?= $product['name'] ?> </p>
-                                <p>Giá : <?= $product['price'] ?></p>
-                                <p>Số lượng : <?= $product['so_luong'] ?></p>
-                                <p>Đơn giá : <?= $product['don_gia'] ?></p>
+                                <p>Name : <?= $product['name'] ?> </p>
+                                <p>Price : <?= $product['price'] ?></p>
+                                <p>Quantity : <?= $product['so_luong'] ?></p>
+                                <p>Total price : <?= $product['don_gia'] ?></p>
                             </div>
                         </div>
 
