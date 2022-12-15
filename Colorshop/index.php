@@ -554,7 +554,23 @@ if (isset($_GET['art'])) {
             break;
 
         case 'order_history':
-
+            if (isset($_GET['huy_don_hang'])) {
+                if (isset($_SESSION['user'])) {
+                    extract($_SESSION['user']);
+                }
+                $date = date('h:i:sa d/m/Y');
+                $order_code = $_GET['huy_don_hang'];
+                $tieuDe = "HỦY ĐƠN HÀNG !";
+                $noiDung .= "<h2>Khách hàng : ".$name." </h2>";
+                $noiDung .= "<p>Quý khách với mã đơn hàng : " . $order_code . " đã hủy đơn vào lúc ".$date."</p>";
+                $mailDatHang = "quangan010903@gmail.com";
+         
+                delete_order($order_code);
+                delete_order_product($order_code);
+                delete_order_vnpay($order_code);
+                $success_message[] = "You have successfully cancel orders !";
+                dathangmail($tieuDe, $noiDung, $mailDatHang); 
+            }
 
             include 'don_hang_da_dat.php';
             break;

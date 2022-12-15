@@ -45,22 +45,17 @@
 
 
                     <?php  } ?>
-                    <!-- <div class="product">
-                <img src="../uploaded_img/1-1-1024x1024.jpg" alt="" width="200px" height="200px">
-                <div class="text">
-                    <p>Tên sản phẩm : Đặng Quang An </p>
-                    <p>Size : XXL</p>
-                    <p>Số lượng : 2</p>
-                </div>
-            </div>
-            <div class="product">
-                <img src="../uploaded_img/1-1-1024x1024.jpg" alt="" width="200px" height="200px">
-                <div class="text">
-                    <p>Tên sản phẩm : Đặng Quang An </p>
-                    <p>Size : XXL</p>
-                    <p>Số lượng : 2</p>
-                </div>
-            </div> -->
+                    <div>
+    <?php
+    if($order['payment_status'] == 'pending'){ ?>
+    <a class="btn btn-danger m-2" href="index.php?art=order_history&huy_don_hang=<?= $order['order_code'] ?>" onclick="return confirm('Do you want to cancel this order!')">Cancel order !</a>
+     <?php   
+    }else if($order['payment_status'] == 'completed'){?>
+    <a class="btn btn-secondary m-2" style="background: green;" href="">Order completed!</a>
+    <?php
+    }
+    ?>
+</div>              
 
                 </div>
             <?php  } 
