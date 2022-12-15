@@ -1,4 +1,5 @@
 <?php
+//Thêm vào giỏ hàng
 $conn = pdo_get_connection();
 if (isset($_POST['add_to_cart'])) {
     if ($_SESSION['user'] == '') {
