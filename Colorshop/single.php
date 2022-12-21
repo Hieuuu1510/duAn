@@ -395,7 +395,7 @@
 			gap: 1.5rem;
 		}
 		.img {
-			width: 280px;
+			width: 260px;
 			height: 200px;
 		}
 		.product_name a{

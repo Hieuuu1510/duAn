@@ -113,7 +113,11 @@ if (isset($_GET['art'])) {
                 $email = $_POST['email'];
                 $quen_mk = quen_mk($email);
                 if (is_array($quen_mk)) {
-                    $notification = "Mật khẩu của bạn là: " . $quen_mk['pass'];
+                    $tieuDe = "QUÊN MẬT KHẨU";
+                    $noiDung = "Mật khẩu của bạn là : " . $quen_mk['pass'];
+                    $mailDatHang = $email;
+                    dathangmail($tieuDe, $noiDung, $mailDatHang);
+                    $notification = "Mật khẩu đã được gửi tới email của bạn !";
                 } else {
                     $notification = "Email không tồn tại";
                 }
